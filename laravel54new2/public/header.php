@@ -5,12 +5,12 @@
                         <a href="news_all.php">การขอรับบริจาคทั้งหมด</a>
                     </li>
                     <li>
-                        <a href="index.php">ขอรับบริจาคเงิน</a>
+                        <a href="secure/index.php">ขอรับบริจาคเงิน</a>
                     </li>
                     
                    
                     <li>
-                        <a href="contact.php">ขอรับบริจาคเลือด</a>
+                        <a href="secure/contact.php">ขอรับบริจาคเลือด</a>
                     </li>
 
                     <li>
@@ -24,7 +24,7 @@
                     if(isset($_SESSION['is_member'])){
                     ?>
                      <li>
-                        <a href="logout.php">ออกจากระบบ</a>
+                        <a href="secure/logout.php">ออกจากระบบ</a>
                     </li>
                     <?php }else{ ?>
                     <li>

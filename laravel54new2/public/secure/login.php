@@ -24,7 +24,7 @@ $login_password = mysqli_real_escape_string($dbcon,$_POST['password']);
               }else{
                   $_SESSION['is_member']=0;
                   $_SESSION['login_username'] = $row_user['login_username'];
-                  header("Location: ../index.php");
+                  header("Location: ../news.php");
               }
   }else{
       echo 'ผู้ใช้หรือรหัสผ่านไม่ถูกต้อง';

@@ -1,9 +1,16 @@
 <!DOCTYPE html>
-<?php session_start() ;
+<?php 
+session_start() ;
  include 'secure/connectdb.php';
- $sql="SELECT * FROM tbnews INNER JOIN tbnewstype ON tbnews.newstype_id=tbnewstype.newstype_id ORDER BY news_id DESC ";
+ 
+ $newstype_id = $_GET['newstype_id'];
+ 
+ 
+ $sql="SELECT * FROM tbnews INNER JOIN tbnewstype ON tbnews.newstype_id=tbnewstype.newstype_id WHERE tbnewstype.newstype_id='$newstype_id' ORDER BY news_id DESC ";
 $res_new = mysqli_query($dbcon, $sql);
+
 ?>
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -34,7 +41,7 @@ $res_new = mysqli_query($dbcon, $sql);
                             <a href="#"><img class="uk-thumbnail uk-thumbnail-large uk-align-center" src="news_image/<?php   echo $row_news['news_filename']; ?>" alt=""></a>
                         </p>
 
-                        <p>รายละเอียด</p>
+                        <p>ข้างล่างเป็นเนื้อหาข่าว</p>
 
                     
                         <p><?php echo $row_news['news_detail'];?></p>

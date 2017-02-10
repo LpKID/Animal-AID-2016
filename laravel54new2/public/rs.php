@@ -2,10 +2,10 @@
             <div class="uk-offcanvas-bar">
                 <ul class="uk-nav uk-nav-offcanvas">
                    <li class="uk-active">
-                        <a href="index.php">หน้าแรก</a>
+                        <a href="index.php">ขอรับบริจาคเงิน</a>
                     </li>
                     <li>
-                        <a href="news_all.php">ข่าวทั้งหมด</a>
+                        <a href="news_all.php">ขอรับบริจาคทั้งหมด</a>
                     </li>
                   <li>
                         <a href="contact.php">ติดต่อเรา</a>
