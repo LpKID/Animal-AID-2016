@@ -46,5 +46,6 @@ and open the template in the editor.
             </div><!-- end grid-->
             
         </div>
+              <?php include 'rs.php';?>
     </body>
 </html>
