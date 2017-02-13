@@ -18,3 +18,10 @@ Route::get('/', function () {
 Route::get('index', 'AnimalController@index');
 Route::get('askinput', 'AnimalController@askinput');
 Route::resource('admins', 'AdminsController');
+Route::get('create', 'AnimalController@create');
+
+use App\Admin;
+Route::get('test', function(){
+    $admins = Admin::all();
+    return $admins;
+});

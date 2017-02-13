@@ -5,15 +5,19 @@
     <head>
         <meta charset="UTF-8">
         <title>เพิ่มการขอรับบริจาค</title>
+     
+         
+         
           <style>
             label {
                 display: block
             }
             
         </style>
-        <script src="../ckeditor/ckeditor.js" ></script>
+        <!--<script src="../ckeditor/ckeditor.js" ></script>-->
     </head>
     <body>
+    
         <h1>เพิ่มข้อมูลสัตว์</h1>
         <form id="form1"action="insert_news.php" method="post" enctype="multipart/form-data">
             <label for="newstype">เลือกประเภทการขอรับบริจาค</label>

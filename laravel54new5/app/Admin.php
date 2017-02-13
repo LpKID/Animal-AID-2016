@@ -7,6 +7,6 @@ use Carbon\Carbon;
 
 class Admin extends Model
 {
-     protected $fillable = 'admins';
-    
+     protected $fillable = [];
+    //'admins'
 }

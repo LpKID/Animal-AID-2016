@@ -14,7 +14,7 @@ class AdminsController extends Controller
 {
     $admins = Admin::get();
                     
-    return view('admins.index',compact('admins'));
+    return view('index',compact('admins'));
 }
 
 
@@ -24,14 +24,14 @@ public function show($admin_id){
     $admin = Admin::find($admin_id);
     if(empty($admin))
     abort(404);
-    return view('admins.show',compact('admin'));
+    return view('show',compact('admin'));
 }
 
 
 
 public function  create()
 {
-    return view('admins.create');
+    return view('create');
 }
 
 
