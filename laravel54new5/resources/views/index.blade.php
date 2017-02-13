@@ -2,6 +2,9 @@
 
 @extends('layouts.content')
 
+
+
+
 @foreach($admins as $admin)
     <div class="panel panel-default">
 
@@ -13,6 +16,3 @@
         <div class="panel-body">{{$admin->position}}</div>
 </div>
 @endforeach
-
-
-
