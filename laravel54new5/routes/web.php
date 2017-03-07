@@ -25,9 +25,3 @@ Route::get('test', function(){
     $admins = Admin::all();
     return $admins;
 });
-use App\Animal;
-Route::resource('animals', 'AnimalsController');
-Route::get('ani', function(){
-    $admins = Admin::all();
-    return $admins;
-});

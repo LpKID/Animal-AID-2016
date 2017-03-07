@@ -1,8 +1,8 @@
-{!! Form::open(['url'=>'animals']) !!}
+{!! Form::open(['url'=>'admins']) !!}
 
 <div class="form-group">
-{!! Form::label('animal_name','Name: ') !!}
-{!! Form::text('animal_color', null , ['class'=>'form-control']) !!}
+{!! Form::label('admin_name','Name: ') !!}
+{!! Form::text('title', null , ['class'=>'form-control']) !!}
 </div>
 
 
