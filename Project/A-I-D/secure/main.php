@@ -1,6 +1,13 @@
-<?php
- include 'session.php'
- ?>
+<?php include 'session.php'; 
+ require 'connectdb.php';
+//ต้อง require ต่อเพราะใน session มันปิด connection ละ
+$sql="SELECT * FROM animals INNER JOIN donationtypes ON animals.do_typeId=donationtypes.do_typeId ORDER BY animal_id DESC";
+$res_animal = mysqli_query($dbcon, $sql);
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,6 +49,65 @@
         <p>
             <a href="form_donation.php">Add Donation</a>
         </p>
+
+
+
+<table border="1px">
+        <tr>
+            <td>Animal ID</td>
+            <td>Animal Name</td>
+             <td>Donation status</td>
+            <td>Date Start</td>
+            
+            <td>Donation Type </td>
+            <td>Animal Picture</td>
+            <td>Edit Donation</td>
+              <td>Delete Donation</td>
+    </tr>
+    <?php 
+        while($row_animals = mysqli_fetch_array($res_animal,MYSQLI_ASSOC)){
+    ?>
+    <tr>
+            <td><?php   echo $row_animals['animal_id']; ?></td>
+            <td><?php   echo $row_animals['animal_name']; ?></td>
+             <td><?php 
+                        if($row_animals['statusDonation']==0){
+                                echo 'Normal'; 
+                            }else{    
+                                echo 'Express';
+                            
+                   }?>
+             </td>
+             
+            <td><?php   echo $row_animals['created_at']; ?></td>
+            <td><?php   echo $row_animals['do_typeName']; ?></td>
+            
+            <td>
+                <a data-lightbox="<?php echo $row_animals['animal_picture']; ?>" data-title="<?php echo $row_animals['animal_picture']; ?>"  href="../animal_image/<?php echo $row_animals['animal_picture']; ?>" target="_blank"><?php   echo $row_animals['animal_picture'];?>
+                </td>
+            
+            
+            <td><a href="form_update_animal.php?id=<?= $row_animals['animal_id']; ?>">Edit Donation</a></td>
+            <td><a href="delete_donation.php?id=<?= $row_animals['animal_id']; ?>">Delete </a></td>
+    </tr>
+    <?php }?>   
+        </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

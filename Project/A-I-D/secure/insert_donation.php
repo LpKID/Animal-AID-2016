@@ -1,8 +1,8 @@
 <?php 
 		include 'connectdb.php';
 
-		$donationtype_id = $_POST['donationstype'];
-		$amimal_name = $_POST['animal_name'];
+		$donationtype_id = $_POST['donationtype'];
+		$animal_name = $_POST['animal_name'];
 		$animal_type = $_POST['animal_type'];
 		$gender = $_POST['gender'];
 		$animal_age = $_POST['animal_age'];
@@ -29,7 +29,7 @@ $image_ext = pathinfo(basename($_FILES['animal_picture']['name']),PATHINFO_EXTEN
 //insert
 
 	$sql1 = "INSERT INTO animals (animal_name,animal_picture,animal_type,animal_color,animal_gender,do_typeId,animal_age,SymptomCase,statusDonation,created_at) "
-        . "VALUES ('$amimal_name','$new_image_name','$animal_type','$animal_color','$gender','$donationtype_id','$animal_age','$SymptomCase','$statusDonation',NOW())";
+        . "VALUES ('$animal_name','$new_image_name','$animal_type','$animal_color','$gender','$donationtype_id','$animal_age','$SymptomCase','$statusDonation',NOW())";
 	 $sql2 = "INSERT INTO askformoneys (priority,money,created_at) "
       . "VALUES ('$priority','$money',NOW())";
 
