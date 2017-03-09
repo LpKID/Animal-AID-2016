@@ -18,8 +18,8 @@
     
         <h1>Add Donation</h1>
         <form id="form1" action="insert_donation.php" method="post" enctype="multipart/form-data">
-            <label for="donationstype">choose type of donation</label>
-            <select name="donationstype">
+            <label for="donationtype">choose type of donation</label>
+            <select name="donationtype" required>
                 <option value="">--choosetype--</option>
                 <?php 
                     $sqldonation_type = "SELECT * FROM donationtypes";

@@ -1,5 +1,11 @@
 
-<?php session_start();  ?>
+<?php session_start() ;
+ include 'secure/connectdb.php';
+
+
+$sql="SELECT * FROM animals INNER JOIN donationtypes ON animals.do_typeId=donationtypes.do_typeId ORDER BY animal_id  LIMIT 9 ";
+$res_animal = mysqli_query($dbcon, $sql);
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,64 +37,7 @@
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Animals A-I-D</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">Funding donation</a>
-                    </li>
-                    <li>
-                        <a href="#">Blood donation</a>
-                    </li>
-                    <li>
-                        <a href="#">Home for animals</a>
-                    </li>
-                    <li>
-                        <a href="#">Follow</a>
-                    </li>
-                    <li>
-                        <a href="#">News</a>
-                    </li>
-
-
-                        <?php 
-                        if (isset($_SESSION['is_member'])) {
-                         ?>
-
-                      <li>
-                        <a href="logout.php">Logout</a>
-                     </li> 
-
-                    <?php } else { ?>
-
-                    <li>
-                        <a href="secure/index.php">Login</a>
-                    </li>
-                    <li>
-                        <a href="form_register.php">register</a>
-                    </li>
-                        <?php } ?>
-               
-
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+   <?php include 'header.php'; ?>
 
     <!-- Page Content -->
     <div class="container">
@@ -132,71 +81,33 @@
 
                 <div class="row">
 
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4><a href="#">First Product</a>
-                                </h4>
-                                <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4><a href="#">Second Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4><a href="#">Third Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4><a href="#">Fourth Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
-                    </div>
+                    <?php 
+                             while($row_animals = mysqli_fetch_array($res_animal,MYSQLI_ASSOC)){
+                    ?>
 
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4><a href="#">Fifth Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-sm-4 col-lg-4 col-md-4">
+                   <div class="col-sm-4 col-lg-4 col-md-4">
+                   <?php   echo 'on '.$row_animals['created_at']; ?>
                         <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
+                            <img src="animal_image/<?php echo $row_animals['animal_picture']; ?>" alt="">
                             <div class="caption">
-                                <h4><a href="#">Fifth Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <h4><?php   echo $row_animals['do_typeName']; ?><br></h4> 
+                                <a href="#"><?php   echo $row_animals['animal_name']; ?></a>
+                                   <p> <?php   echo $row_animals['animal_type']; ?>
+                                       <?php   echo $row_animals['SymptomCase']; ?>
+                                </p>
+                                <p> at <a target="_blank" href="http://www.bootsnipp.com">button link</a>.</p>
                             </div>
                         </div>
                     </div>
+                       <?php } ?>
+
+
+
+
 
                         <div class="col-sm-4 col-lg-4 col-md-4">
                             <a class="btn btn-primary" target="_blank" href="">View All</a>

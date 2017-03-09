@@ -1,7 +1,7 @@
 <?php include 'session.php'; 
  require 'connectdb.php';
 //ต้อง require ต่อเพราะใน session มันปิด connection ละ
-$sql="SELECT * FROM animals INNER JOIN donationtypes ON animals.do_typeId=donationtypes.do_typeId ORDER BY animal_id DESC";
+$sql="SELECT * FROM animals INNER JOIN donationtypes ON animals.do_typeId=donationtypes.do_typeId ORDER BY animal_id  ";
 $res_animal = mysqli_query($dbcon, $sql);
 
 

@@ -42,10 +42,10 @@ if($success ==FALSE){
 }
    
 
-$sql1 = "UPDATE  animals SET animal_name='$animal_name',animal_type='$animal_type',animal_color='$animal_color',animal_gender='$gender',do_typeId='$donationtype_id',animal_age='$animal_age',SymptomCase='$SymptomCase',statusDonation='$statusDonation',created_at=NOW() WHERE animal_id=$animal_id";
+$sql1 = "UPDATE  animals SET animal_name='$animal_name',animal_type='$animal_type',animal_color='$animal_color',animal_gender='$gender',do_typeId='$donationtype_id',animal_age='$animal_age',SymptomCase='$SymptomCase',statusDonation='$statusDonation',updated_at=NOW() WHERE animal_id=$animal_id";
  
 
-$sql2 = "UPDATE  askformoneys SET priority='$priority',money='$money',created_at=NOW() WHERE animal_id=$animal_id";
+$sql2 = "UPDATE  askformoneys SET priority='$priority',money='$money',updated_at=NOW() WHERE animal_id=$animal_id";
 
 
 
