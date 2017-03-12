@@ -52,7 +52,7 @@ $sql2 = "UPDATE  askformoneys SET priority='$priority',money='$money',updated_at
     $result1 = mysqli_query($dbcon, $sql1);
     $result2 = mysqli_query($dbcon, $sql2);
     if($result2){
-    //echo 'บันทึกข้อมูลเรียบร้อย';
+    //echo 'บันทึกข้อมูลเรียบร้อย'.$animal_id;
     header("Location: main.php");
     }else{
     echo 'เกิดข้อผิดพลาดที่ '.  mysqli_error($dbcon);

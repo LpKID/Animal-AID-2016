@@ -3,7 +3,7 @@
      $animal_id = $_GET['id'];
      
      //$sql = "SELECT * FROM animals WHERE animal_id = '$animal_id'";
-    $sql="SELECT * FROM animals INNER JOIN askformoneys ON animals.animal_id=askformoneys.animal_id ";
+    $sql="SELECT * FROM animals  JOIN askformoneys ON animals.animal_id=askformoneys.animal_id  WHERE animals.animal_id = '$animal_id'";
 
      $res_animal = mysqli_query($dbcon, $sql);
      $row_animal = mysqli_fetch_assoc($res_animal);
@@ -24,7 +24,9 @@
         <script src="../ckeditor/ckeditor.js" ></script>
     </head>
     <body>
+   
         <h1>Edit Donation ID : <?php echo $animal_id;?></h1>
+          
         <form id="form1"action="update_donation.php" method="post" enctype="multipart/form-data">
             <label for="donationtype">choose donation type</label>
             
