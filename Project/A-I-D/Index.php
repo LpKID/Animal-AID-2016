@@ -3,7 +3,7 @@
  include 'secure/connectdb.php';
 
 
-$sql="SELECT * FROM animals INNER JOIN donationtypes ON animals.do_typeId=donationtypes.do_typeId ORDER BY animal_id  LIMIT 9 ";
+$sql="SELECT * FROM animals INNER JOIN donationtypes ON animals.do_typeId=donationtypes.do_typeId ORDER BY animal_id  LIMIT 30 ";
 $res_animal = mysqli_query($dbcon, $sql);
 ?>
 
@@ -57,7 +57,7 @@ $res_animal = mysqli_query($dbcon, $sql);
                             </ol>
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                    <img class="slide-image" src="animal_image/<?php echo $row_animals['animal_picture']; ?>" alt="">
                                 </div>
                                 <div class="item">
                                     <img class="slide-image" src="http://placehold.it/800x300" alt="">
