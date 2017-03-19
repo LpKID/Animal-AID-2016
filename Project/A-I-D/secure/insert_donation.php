@@ -14,8 +14,6 @@
 		
 	//resize 
 
- 
-
 
 		    //upload image 
 $image_ext = pathinfo(basename($_FILES['animal_picture']['name']),PATHINFO_EXTENSION);//ดึงนามสกุล =PATHINFO_EXTENSION ดึงไฟล์ชื่อนี้มา= basename
@@ -25,7 +23,6 @@ $image_ext = pathinfo(basename($_FILES['animal_picture']['name']),PATHINFO_EXTEN
 
 //resize
  
-
 //uploading
 	$success =move_uploaded_file($_FILES['animal_picture']['tmp_name'], $upload_path);
 
@@ -35,6 +32,7 @@ $image_ext = pathinfo(basename($_FILES['animal_picture']['name']),PATHINFO_EXTEN
     echo "couldn't upload picture";
     exit();
 	}
+
 //insert
 
 	$sql1 = "INSERT INTO animals (animal_name,animal_picture,animal_type,animal_color,animal_gender,do_typeId,animal_age,SymptomCase,statusDonation,created_at) "

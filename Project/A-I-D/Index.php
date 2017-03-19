@@ -4,8 +4,11 @@
 
 
 $sql="SELECT * FROM animals INNER JOIN donationtypes ON animals.do_typeId=donationtypes.do_typeId ORDER BY animal_id  LIMIT 30 ";
-$res_animal = mysqli_query($dbcon, $sql);
+$sql2="SELECT * FROM animals INNER JOIN donationtypes ON animals.do_typeId=donationtypes.do_typeId  WHERE statusDonation='1' ORDER BY animal_id  ";
+$res_animal = mysqli_query($dbcon, $sql2);
+$res_animal2 = mysqli_query($dbcon, $sql);
 ?>
+                  
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,15 +59,23 @@ $res_animal = mysqli_query($dbcon, $sql);
                                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                             </ol>
                             <div class="carousel-inner">
-                                <div class="item active">
-                                    <img class="slide-image" src="animal_image/<?php echo $row_animals['animal_picture']; ?>" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
-                                </div>
+                            <?php 
+                                $count=0;
+                             ?>
+                                    <?php
+                                    while($row_animals = mysqli_fetch_array($res_animal,MYSQLI_ASSOC)){
+                                     ?>
+                                        <?php if($count==0){ ?>
+                                            <div class="item active">
+                                            <img class="slide-image" width="800px" height="300px" src="animal_image/<?php echo $row_animals['animal_picture']; ?>" alt="">
+                                            </div>
+                                        <?php }else{ ?>
+                                            <div class="item">
+                                            <img class="slide-image" width="800px" height="300px" src="animal_image/<?php echo $row_animals['animal_picture']; ?>" alt="">
+                                            </div>
+                                        <?php }//End If ?>
+                                        <?php $count++; ?>
+                                    <?php }//End While?>
                             </div>
                             <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
                                 <span class="glyphicon glyphicon-chevron-left"></span>
@@ -82,22 +93,22 @@ $res_animal = mysqli_query($dbcon, $sql);
                 <div class="row">
 
 
-
-
                     <?php 
-                             while($row_animals = mysqli_fetch_array($res_animal,MYSQLI_ASSOC)){
+                             while($row_animals2 = mysqli_fetch_array($res_animal2,MYSQLI_ASSOC)){
                     ?>
+
+                   
 
 
                    <div class="col-sm-4 col-lg-4 col-md-4">
-                   <?php   echo 'on '.$row_animals['created_at']; ?>
+                   <?php   echo 'on '.$row_animals2['created_at']; ?>
                         <div class="thumbnail">
-                            <img src="animal_image/<?php echo $row_animals['animal_picture']; ?>" alt="">
+                            <img width="80px" height="20px" src="animal_image/<?php echo $row_animals2['animal_picture']; ?>" alt="">
                             <div class="caption">
-                                <h4><?php   echo $row_animals['do_typeName']; ?><br></h4> 
-                                <a href="#"><?php   echo $row_animals['animal_name']; ?></a>
-                                   <p> <?php   echo $row_animals['animal_type']; ?>
-                                       <?php   echo $row_animals['SymptomCase']; ?>
+                                <h4><?php   echo $row_animals2['do_typeName']; ?><br></h4> 
+                                <a href="#"><?php   echo $row_animals2['animal_name']; ?></a>
+                                   <p> <?php   echo $row_animals2['animal_type']; ?>
+                                       <?php   echo $row_animals2['SymptomCase']; ?>
                                 </p>
                                 <p> at <a target="_blank" href="http://www.bootsnipp.com">button link</a>.</p>
                             </div>
