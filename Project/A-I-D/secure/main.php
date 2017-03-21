@@ -88,20 +88,12 @@ $res_animal = mysqli_query($dbcon, $sql);
             
             
             <td><a href="form_update_animal.php?id=<?= $row_animals['animal_id']; ?>">Edit Donation</a></td>
-            <td><a href="delete_donation.php?id=<?= $row_animals['animal_id']; ?>">Delete </a></td>
+            
+
+            <td><a href="delete_donation.php?id=<?= $row_animals['animal_id']; ?>" onclick="return confirm('Please confirm again !!!')">Delete </a></td>
     </tr>
     <?php }?>   
         </table>
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -35,7 +35,17 @@ $res_animal2 = mysqli_query($dbcon, $sql);
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <style type="text/css">
+        .carousel-inner > .item > img {
+  width:700;
+  height:300px;
+}
+.thumbnail img {
+    width:100% !important;
+    height: 200px !important;
+}
+    </style>
+}
 </head>
 
 <body>
