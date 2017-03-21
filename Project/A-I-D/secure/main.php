@@ -38,7 +38,7 @@ $res_animal = mysqli_query($dbcon, $sql);
 
 <body>
 
-
+ <?php include '../header.php'; ?>
 
 
  <h1> Welcome </h1>

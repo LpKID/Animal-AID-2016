@@ -9,19 +9,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Animals A-I-D</a>
+                <a class="navbar-brand" href="index.php">Animals A-I-D</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">Funding donation</a>
+                        <a href="money.php">Funding donation</a>
                     </li>
                     <li>
-                        <a href="#">Blood donation</a>
+                        <a href="blood.php">Blood donation</a>
                     </li>
                     <li>
-                        <a href="#">Home for animals</a>
+                        <a href="adoption.php">Home for animals</a>
                     </li>
                     <li>
                         <a href="#">Follow</a>

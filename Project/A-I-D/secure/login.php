@@ -22,6 +22,7 @@
 
         if($row_user['status']==500){
             $_SESSION['is_admin']=500;
+            $_SESSION['is_member'] = 1;
             header("Location:main.php");//if user is admin pass it will be redirect to this main.php
         }else{
                 $_SESSION['is_member'] = 0;

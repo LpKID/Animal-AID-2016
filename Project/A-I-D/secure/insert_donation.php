@@ -1,5 +1,5 @@
 <?php 
-//require "/path/to/file"
+
 		include 'connectdb.php';
 
 		$donationtype_id = $_POST['donationtype'];
@@ -22,53 +22,11 @@ $image_ext = pathinfo(basename($_FILES['animal_picture']['name']),PATHINFO_EXTEN
 	$image_path ="../animal_image/";
 	$upload_path = $image_path.$new_image_name;//ทำpathต่อด้วยชื่อไฟล์ใหม่ 
 
-//resize
- /*
-function imgResize($upload_path) {
 
-           $x = getimagesize($upload_path);            
-           $width  = $x['0'];
-           $height = $x['1'];
-
-           $rs_width  = $width / 2;//resize to half of the original width.
-           $rs_height = $height / 2;//resize to half of the original height.
-
-           switch ($x['mime']) {
-              case "image/gif":
-                 $img = imagecreatefromgif($upload_path);
-                 break;
-              case "image/jpg":
-              case "image/jpeg":
-                 $img = imagecreatefromjpeg($upload_path);
-                 break;
-              case "image/png":
-                 $img = imagecreatefrompng($upload_path);
-                 break;
-           }
-
-           $img_base = imagecreatetruecolor($rs_width, $rs_height);
-           imagecopyresized($img_base, $img, 0, 0, 0, 0, $rs_width, $rs_height, $width, $height);
-
-           $path_info = pathinfo($upload_path);    
-           switch ($path_info['extension']) {
-              case "gif":
-                 imagegif($img_base, $upload_path);  
-                 break;
-            case "jpg":
-            case "jpeg":
-                 imagejpeg($img_base, $upload_path);
-                 break;
-              case "png":
-                 imagepng($img_base, $upload_path);  
-                 break;
-           }
-
-        }
- */
 //uploading
- //$img = imgResize('$upload_path');
+ 
 	$success =move_uploaded_file($_FILES['animal_picture']['tmp_name'], $upload_path);
-//$success =move_uploaded_file($_FILES['animal_picture']['tmp_name'],$img);
+
 
 
 //สั่ง upload มาใส่ใน upload path folder เรา
