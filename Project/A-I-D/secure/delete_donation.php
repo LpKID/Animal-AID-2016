@@ -12,8 +12,10 @@
   unlink('../animal_image/'.$picture);//ลบ
 
 $sql = "DELETE FROM animals WHERE  animal_id= '$animal_id'";
+$sql2 = "DELETE FROM askformoneys WHERE  animal_id= '$animal_id'";
 $result = mysqli_query($dbcon, $sql);
-if($result){
+$result2 = mysqli_query($dbcon, $sql2);
+if($result&&$result2){
   header("Location: main.php");
     
 }else{
