@@ -8,7 +8,34 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in!
+
+                <table class="table">
+                <thead>
+                <table>
+                <tr>
+                    <th>name</th>
+                   <th>email</th>
+                   <th>position</th>
+                   <th>tel</th>
+                   <th>action</th>
+                </tr>
+                    </thead>
+                        <tbody>
+
+                            <tr>
+
+                                        <td>{{$your_name}}</td>
+                                        <td> {{$your_email}}</td>
+                                        <td>{{$your_position}}</td>
+                                          <td>{{$your_tel}}</td>
+                                       <td><a href="/edit" class="btn btn-info btn-sm">Edit</a></td>
+
+
+
+                        </tbody>
+                    </table>
+
+
                 </div>
             </div>
         </div>

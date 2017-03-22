@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Repositories\UserRepositoryInterface;
+use Auth;
 class HomeController extends Controller
 {
     /**
@@ -11,10 +12,12 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+     public function __construct(UserRepositoryInterface $UserRepository)
+       {
+           $this->middleware('auth');
+           $this->middleware('checkadmin');
+           $this->UserRepository = $UserRepository;
+       }
 
     /**
      * Show the application dashboard.
@@ -23,6 +26,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+      $data = array(
+           'your_name'=>Auth::user()->name,
+           'your_email'=>Auth::user()->email,
+           'your_position'=>Auth::user()->position
+           );
+     //  $data2 = array(
+        //       'all_users'=>$this->UserRepository->getAllUser()
+        //   );
+
+      return view('home',$data);
+        //return view('home',$data2);
     }
 }
