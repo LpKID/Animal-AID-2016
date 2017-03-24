@@ -22,3 +22,5 @@ Route::get('/admin', 'AdminController@index');
 Route::get('/delete/{id}', 'AdminController@delete');
 Route::get('/add','AnimalController@addAnimal');
 Route::post('/add','AnimalController@addAnimal');
+Route::get('/animal', 'AnimalController@animal');
+Route::post('/animal', 'AnimalController@animal');

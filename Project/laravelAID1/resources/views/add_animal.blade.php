@@ -26,6 +26,34 @@
                         <label for="ani_type" class="form-label">Animal Type</label>
                         <input type="text" class="form-control" name="ani_type"/>
                     </div>
+                    <div class="form-group">
+                        <label for="ani_picture" class="form-label">Animal Picture</label>
+                        <input type="text" class="form-control" name="ani_picture"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="ani_color" class="form-label">Animal Color</label>
+                        <input type="text" class="form-control" name="ani_color"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="ani_gender" class="form-label">Animal Gender</label>
+                        <input type="text" class="form-control" name="ani_gender"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="ani_age" class="form-label">Animal Age</label>
+                        <input type="text" class="form-control" name="ani_age"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="symptomCase" class="form-label">symptomCase</label>
+                        <input type="text" class="form-control" name="symptomCase"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="statusDonation" class="form-label">Status Donation</label>
+                        <input type="text" class="form-control" name="statusDonation"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="doType_id" class="form-label">Donation Type</label>
+                        <input type="text" class="form-control" name="doType_id"/>
+                    </div>
                     <div class="text-center">
                         <button class="btn btn-success">Add Animal</button>
                     </div>
@@ -33,6 +61,8 @@
             </div>
         </div>
     </div>
+
+
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
