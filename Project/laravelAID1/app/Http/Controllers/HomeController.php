@@ -29,7 +29,9 @@ class HomeController extends Controller
       $data = array(
            'your_name'=>Auth::user()->name,
            'your_email'=>Auth::user()->email,
-           'your_position'=>Auth::user()->position
+           'your_position'=>Auth::user()->position,
+           'your_tel'=>Auth::user()->tel
+
            );
      //  $data2 = array(
         //       'all_users'=>$this->UserRepository->getAllUser()

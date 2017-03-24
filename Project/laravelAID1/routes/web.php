@@ -20,3 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 Route::get('/admin', 'AdminController@index');
 Route::get('/delete/{id}', 'AdminController@delete');
+Route::get('/add','AnimalController@addAnimal');
+Route::post('/add','AnimalController@addAnimal');

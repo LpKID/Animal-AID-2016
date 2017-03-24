@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App;
-class UserServiceProvider extends ServiceProvider
+class RepositoryServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -24,5 +24,6 @@ class UserServiceProvider extends ServiceProvider
     public function register()
     {
           App::bind('App\Repositories\UserRepositoryInterface','App\Repositories\UserRepository');
+          App::bind('App\Repositories\AnimalRepositoryInterface','App\Repositories\AnimalRepository');
     }
 }
