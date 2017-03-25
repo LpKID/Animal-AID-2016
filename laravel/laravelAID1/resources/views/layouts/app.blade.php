@@ -34,10 +34,19 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <!-- Branding Image -->
+                    <!-- Branding Image-->
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
+                    @if(!empty($admin))
+                      @if($admin == true)
+                      <a href="../add"> Add Donation  </a>
+                      <a href="../animal"> ::Show all Add</a>
+                    
+                      @endif
+                    @endif
+
+
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">

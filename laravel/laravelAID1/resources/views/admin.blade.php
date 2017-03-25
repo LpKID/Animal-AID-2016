@@ -33,7 +33,7 @@
                               <td> {{$user->tel}}</td>
 
                              <td><a href="/edit" class="btn btn-info btn-sm">Edit</a></td>
-                              <td><a href="/delete/{{$user->id}}" class="btn btn-danger btn-sm">Delete</a></td>
+                              <td><a href="/delete/{{$user->id}}" class="btn btn-danger btn-sm" onclick="return confirm('Please confirm again !!!') ">Delete</a></td>
                             </tr>
                             @endforeach
                     </tbody>

@@ -18,8 +18,10 @@ class AdminController extends Controller
 
     function index(){
     	$data = array(
-    		'all_users'=>$this->UserRepository->getAllUser()
+    		'all_users'=>$this->UserRepository->getAllUser(),
+        'admin'=>true
     		);
+
     	return view('admin',$data);
     }
     function delete($id){
@@ -29,7 +31,5 @@ class AdminController extends Controller
     	}else{
     		echo "Can not Delete this user";
     	}
-
-
     }
-}
+  }
