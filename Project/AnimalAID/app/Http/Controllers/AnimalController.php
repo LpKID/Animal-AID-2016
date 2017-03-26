@@ -22,15 +22,39 @@ class AnimalController extends Controller
         $data = array(
             'animals'=>$animals   //'animalsคีย์ที่จะส่งไปให้ view ใ้ช้'=>$animals
         );
+        //return view('animal',$data); มึงจะให้มันไปหน้าไหน
         return view('animal',$data);
     }
+    function animalAll(){
+        $animals = $this->AnimalRepository->getAllAnimal();
+          $donationType = $this->DonationTypeRepository->getAllDonationType();
+
+        $data = array(
+            'animals'=>$animals,   //'animalsคีย์ที่จะส่งไปให้ view ใ้ช้'=>$animals
+            'donationType'=>$donationType
+        );
+
+        return view('all',$data);
+    }
+
 
     function addAnimal(){
       if(Request::isMethod('get')){
-        return view('add_animal');
+        $donationType = $this->DonationTypeRepository->getAllDonationType();
+        $data = array(
+          'donationType'=>$donationType
+        );
+        return view('add_animal',$data);
       }else if(Request::isMethod('post')){
+          //------upload image and store------
+          $temp = Request::file('ani_picture')->getPathName();
+          $imageName = Request::file('ani_picture')->getClientOriginalName();
+          $path = base_path().'/public/images/';
+          $newImageName = 'animal_'.str_random(10).$imageName;
+          Request::file('ani_picture')->move($path, $newImageName);
+          //----------------------------------
             $animalName = Input::get('ani_name');
-            $animalPicture = Input::get('ani_picture');
+            //$animalPicture = Input::get('ani_picture');
             $animalColor= Input::get('ani_color');
             $animalGender= Input::get('ani_gender');
             $animalAge= Input::get('ani_age');
@@ -38,9 +62,11 @@ class AnimalController extends Controller
             $statusDonation= Input::get('statusDonation');
             $animalType= Input::get('ani_type');
             $doTypeId= Input::get('doType_id');
-            $result = $this->AnimalRepository->addAnimal($animalName,$animalType,$animalPicture,$animalColor,$animalGender,$animalAge,$symptomCase,$statusDonation,$doTypeId);
+            $result = $this->AnimalRepository->addAnimal($animalName,$animalType,$newImageName,$animalColor,
+            $animalGender,$animalAge,$symptomCase,$statusDonation,$doTypeId);
+
             if($result){
-                return redirect('/add');
+                return redirect('/animal');
             }else{
                 echo "Failed to add animal";
             }
@@ -88,7 +114,7 @@ class AnimalController extends Controller
     function deleteAnimal($animal_id){
       $result = $this->AnimalRepository->deleteAnimal($animal_id);
       if($result){
-          return redirect('/home');
+          return redirect('/animal');
       }else{
           echo "Can not delete animal";
       }
@@ -97,9 +123,5 @@ class AnimalController extends Controller
     function badEditRequest(){
       return redirect('animal');
     }
-
-
-
-
 
 }

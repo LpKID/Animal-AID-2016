@@ -26,7 +26,7 @@
             <tr>
               <td>{{$animal->animal_id}}</td>
               <td>{{$animal->animal_name}}</td>
-              <td>{{$animal->animal_type}}</td>
+              <td>{{$animal->join_donationType->do_typeName}}</td>
               <td>{{$animal->animal_picture}}</td>
               <td>{{$animal->animal_age}}</td>
               <td>

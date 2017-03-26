@@ -38,6 +38,4 @@ Route::get('/deleteAnimal/{id}', 'AnimalController@deleteAnimal');
 ///โดยที่ส่ง ไอดีมาทาง url
 //ทีนี้ มันจะเปนงี้ localhost: 8000/edit/5
 //มันจะไปทำ get method
-Route::get('/all', function () {
-    return view('all');
-});
+Route::get('/all', 'AnimalController@animalAll');

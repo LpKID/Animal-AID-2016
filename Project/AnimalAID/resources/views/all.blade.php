@@ -5,8 +5,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <!-- Bootstrap Core CSS -->
+    <link href="https://blackrockdigital.github.io/startbootstrap-shop-homepage/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="https://blackrockdigital.github.io/startbootstrap-shop-homepage/css/shop-homepage.css" rel="stylesheet">
+    <style type="text/css">
+        .carousel-inner > .item > img {
+  width:700;
+  height:300px;
+}
+.thumbnail img {
+    width:100% !important;
+    height: 200px !important;
+}
+    </style>
   </head>
   <body>
     <!-- Navigation -->
@@ -64,15 +77,20 @@
                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                            </ol>
                            <div class="carousel-inner">
-                               <div class="item active">
-                                   <img class="slide-image" src="http://placehold.it/800x300" alt="">
-                               </div>
-                               <div class="item">
-                                   <img class="slide-image" src="http://placehold.it/800x300" alt="">
-                               </div>
-                               <div class="item">
-                                   <img class="slide-image" src="http://placehold.it/800x300" alt="">
-                               </div>
+                             @foreach($animals as $pic)
+
+                                    @if($loop->first)
+                                      <div class="item active">
+                                          <img class="slide-image" src="{{url('/images/'.$pic->animal_picture)}}" alt="">
+                                      </div>
+                                    @else
+                                      <div class="item">
+                                          <img class="slide-image" src="{{url('/images/'.$pic->animal_picture)}}" alt="">
+
+                                      </div>
+                             @endif
+                           @endforeach
+                        จะแสดงข่าวตรงนี้
                            </div>
                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
                                <span class="glyphicon glyphicon-chevron-left"></span>
@@ -89,75 +107,32 @@
 
                <div class="row">
 
+                  @foreach($animals as $animal)
                    <div class="col-sm-4 col-lg-4 col-md-4">
+                       <small>{{$animal->created_at}}</small>
                        <div class="thumbnail">
-                           <img src="http://placehold.it/320x150" alt="">
+                           <img src="{{url('/images/'.$animal->animal_picture)}}" alt="">
                            <div class="caption">
-                               <h4><a href="#">First Product</a>
+                             {{$animal->join_donationType->do_typeName}}
+                               <h4><a href="#">{{$animal->animal_name}}</a>
                                </h4>
-                               <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
+                               <p>{{$animal->animal_type}}</p>
+                               <p>{{$animal->symptomCase}}</p>
+                               <div class="col-sm-4 col-lg-4 col-md-4">
+                                      <a class="btn btn-primary" target="_blank" href="">View All</a>
+                                  </div>
                            </div>
                        </div>
-                   </div>
+                     </div>
+                @endforeach
 
-                   <div class="col-sm-4 col-lg-4 col-md-4">
-                       <div class="thumbnail">
-                           <img src="http://placehold.it/320x150" alt="">
-                           <div class="caption">
-                               <h4><a href="#">Second Product</a>
-                               </h4>
-                               <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                           </div>
-                       </div>
-                   </div>
 
-                   <div class="col-sm-4 col-lg-4 col-md-4">
-                       <div class="thumbnail">
-                           <img src="http://placehold.it/320x150" alt="">
-                           <div class="caption">
-                               <h4><a href="#">Third Product</a>
-                               </h4>
-                               <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                           </div>
-                       </div>
-                   </div>
 
-                   <div class="col-sm-4 col-lg-4 col-md-4">
-                       <div class="thumbnail">
-                           <img src="http://placehold.it/320x150" alt="">
-                           <div class="caption">
-                               <h4><a href="#">Fourth Product</a>
-                               </h4>
-                               <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                           </div>
-                       </div>
-                   </div>
 
-                   <div class="col-sm-4 col-lg-4 col-md-4">
-                       <div class="thumbnail">
-                           <img src="http://placehold.it/320x150" alt="">
-                           <div class="caption">
-                               <h4><a href="#">Fifth Product</a>
-                               </h4>
-                               <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                           </div>
-                       </div>
-                   </div>
 
-                   <div class="col-sm-4 col-lg-4 col-md-4">
-                       <div class="thumbnail">
-                           <img src="http://placehold.it/320x150" alt="">
-                           <div class="caption">
-                               <h4><a href="#">Fifth Product</a>
-                               </h4>
-                               <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                           </div>
-                       </div>
-                   </div>
 
-                       <div class="col-sm-4 col-lg-4 col-md-4">
-                           <a class="btn btn-primary" target="_blank" href="">View All</a>
-                       </div>
+
+
 
                </div>
 
@@ -215,6 +190,7 @@
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-  </body>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://blackrockdigital.github.io/startbootstrap-shop-homepage/js/bootstrap.min.js"></script>
+    </body>
 </html>
