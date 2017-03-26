@@ -18,6 +18,7 @@ class AnimalController extends Controller
 //เรียกใช้  repo ที่สร้าง
     function animal(){
         $animals = $this->AnimalRepository->getAllAnimal();
+        //$donationType_name = $this->DonationTypeRepository->findTypeById($type_id); //ไมไ่ด้ 55555 คิดแปป ****************************
         $data = array(
             'animals'=>$animals   //'animalsคีย์ที่จะส่งไปให้ view ใ้ช้'=>$animals
         );
@@ -93,6 +94,9 @@ class AnimalController extends Controller
       }
     }
 
+    function badEditRequest(){
+      return redirect('animal');
+    }
 
 
 
